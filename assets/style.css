@@ -1,0 +1,118 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.fas {
+    line-height: unset;
+}
+
+.nav {
+    position: fixed;
+}
+
+.body {
+    overflow: auto;
+}
+
+#w-card-title {
+    padding: 10px;
+}
+
+#w-cardrow {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 15px;
+}
+
+#w-cardfore {
+    border: 0px;
+}
+
+#w-sq-row {
+    margin: 0px;
+    text-align: center;
+}
+
+#w-sqe-6,
+#w-sqe-5,
+#w-sqe-4,
+#w-sqe-3,
+#w-sqe-2,
+#w-sqe-1,
+#w-sqe-0 {
+    left: auto;
+    right: auto;
+    padding: 0px;
+    color: white;
+}
+
+#w-sq-6,
+#w-sq-5,
+#w-sq-4,
+#w-sq-3,
+#w-sq-2,
+#w-sq-1,
+#w-sq-0 {
+    width: 150px;
+    height: 185px;
+    margin: 0px;
+    border-radius: 25px;
+    text-align: center;
+    font-size: large;
+    padding-top: 10px;
+    display: inline-block;
+}
+
+#w-sqi-6,
+#w-sqi-5,
+#w-sqi-4,
+#w-sqi-3,
+#w-sqi-2,
+#w-sqi-1,
+#w-sqi-0 {
+    font-size: xx-large;
+}
+
+#w-sql-1,
+#w-sql-0 {
+    color: white;
+    text-decoration: underline;
+}
+
+#w-sq-0 {
+    background-color: blue;
+}
+
+#w-sq-1 {
+    background-color: red;
+}
+
+#w-sq-2 {
+    background-color: orange;
+}
+
+#w-sq-3 {
+    background-color: green;
+}
+
+#w-sq-4 {
+    background-color: purple;
+}
+
+#w-sq-5 {
+    background-color: pink;
+}
+
+#w-sq-6 {
+    background-color: brown;
+}
+
+#body-area {
+    background: #D9D9D9;
+    font-family: 'Ubuntu', sans-serif;
+    display: grid;
+    overflow: auto;
+    object-fit: cover;
+    overflow-y: scroll;
+}

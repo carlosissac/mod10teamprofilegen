@@ -1,0 +1,33 @@
+{
+  "name": "mod10teamprofilegen",
+  "version": "1.0.0",
+  "description": "mod10teamprofilegen",
+  "main": "app.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosissac/mod10teamprofilegen.git"
+  },
+  "author": "carlosissac",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carlosissac/mod10teamprofilegen/issues"
+  },
+  "homepage": "https://github.com/carlosissac/mod10teamprofilegen#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "fs": "0.0.1-security",
+    "inquirer": "^7.3.3",
+    "moment": "^2.27.0",
+    "util": "^0.12.3"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}
