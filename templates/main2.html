@@ -1,0 +1,33 @@
+
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        <div class="row"></div>
+        <div class="row"></div>
+    </div>
+</main>
+</div>
+<!-- MAIN AREA END -->
+<!-- STICKY FOOTER START -->
+<footer class="page-footer">
+    <div id="main-footer-cp" class="footer-copyright">
+        <div id="main-footer"class="container right-align">Copyright © Gatito <i class="fas fa-cat"></i></div>
+    </div>
+</footer>
+<!-- JQEURY LINKAGE -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<script>
+    $(document).ready(function(){
+        $(window).scroll(function(){
+            if($(window).scrollTop()>150) {
+                $('nav').addClass('sticky-nav');
+            }
+            else {
+                $('nav').removeClass('sticky-nav');
+            }
+        });
+    });
+</script>
+</body>
+</html>

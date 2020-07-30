@@ -25,6 +25,7 @@
     "fs": "0.0.1-security",
     "inquirer": "^7.3.3",
     "moment": "^2.27.0",
+    "path": "^0.12.7",
     "util": "^0.12.3"
   },
   "devDependencies": {

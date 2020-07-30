@@ -1,15 +1,16 @@
-const { Manager } = require('./libraries/manager')
-const { ProductOwner } = require('./libraries/productowner')
-const { ScrumMaster } = require('./libraries/scrummaster')
-const { TechLead } = require('./libraries/techlead')
-const { QA } = require('./libraries/qa')
-const { Engineer } = require('./libraries/engineer')
-const { Intern } = require('./libraries/intern')
+const { Manager } = require('./lib/manager')
+const { ProductOwner } = require('./lib/productowner')
+const { ScrumMaster } = require('./lib/scrummaster')
+const { TechLead } = require('./lib/techlead')
+const { QA } = require('./lib/qa')
+const { Engineer } = require('./lib/engineer')
+const { Intern } = require('./lib/intern')
+
+const { Builder } = require('./helper/builder')
 
 const inquirer = require('inquirer')
-const path = require(`path`)
-const fs = require(`fs`)
 const colors = require(`colors`)
+const moment = require('moment')
 
 const Project = function() {
     this.attributes()
@@ -17,11 +18,8 @@ const Project = function() {
     this.projectCapture()
 }
 
-Project.prototype.setProperty = function(targetProperty, value) {
-    this[targetProperty] = value
-}
-
 Project.prototype.attributes = function() {
+    this.projectName = ``
     this.manager = new Manager()
     this.productowner = new ProductOwner()
     this.scrummaster = new ScrumMaster()
@@ -29,6 +27,7 @@ Project.prototype.attributes = function() {
     this.engineer = new Engineer()
     this.qa = new QA()
     this.intern = new Intern()
+    this.builder = new Builder()
 
     this.array_engineer = []
     this.array_qa = []
@@ -36,9 +35,6 @@ Project.prototype.attributes = function() {
 
     this.capture_lock = 0
     this.tmc_lock = 0
-    
-    this.position = `` 
-    this.targetPropertyType = ``
 }
 
 Project.prototype.validateInput = function(text) {
@@ -130,6 +126,12 @@ Project.prototype.inquirerElements = function() {
     }
 }
 
+Project.prototype.projectNameCapture = async function() {
+    const pn = await inquirer.prompt(this.qproject)
+    this.projectName = pn.attribute
+    this.capture_lock++
+}
+
 Project.prototype.teamMemberCapture = async function(position, targetPropertyType) {
     let n = ``
     let e = ``
@@ -156,10 +158,13 @@ Project.prototype.teamMemberCapture = async function(position, targetPropertyTyp
                 this.tmc_lock++
             break
             case 3:
+                const ts = moment().format('x')
+                this[`${position}`].setProperty(`employeeId`, ts.slice(ts.length-5))
                 this[`${position}`].setProperty(`name`, n)
                 this[`${position}`].setProperty(`email`, e)
                 this[`${position}`].setProperty(targetPropertyType, atr)
                 this.tmc_lock++
+                this.builder.elements++
             break
             default:
                 console.log(`teamMemberCapture NOT AN OPTION`)
@@ -205,11 +210,14 @@ Project.prototype.teamMemberRecursive = async function(position, targetPropertyT
                 this.tmc_lock++
             break
             case 4:
+                const ts = moment().format('x')
+                this[`${position}`].setProperty(`employeeId`, ts.slice(ts.length-5))
                 this[`${position}`].setProperty(`name`, n)
                 this[`${position}`].setProperty(`email`, e)
                 this[`${position}`].setProperty(targetPropertyType, atr)
                 this[`${position}`].setProperty(`recursive`, rec)
                 this.tmc_lock++
+                this.builder.elements++
             break
             default:
                 console.log(`teamMemberCapture NOT AN OPTION`)
@@ -224,8 +232,19 @@ Project.prototype.recursiveCapture = async function(position, targetPropertyType
     console.log(`${positionUpperCase} CAPTURE`.green)
     
     const promise = await this.teamMemberRecursive(position, targetPropertyType)
-    const len = this[`array_${position}`].push(this[`${position}`])
-    const rec = this[`array_${position}`][len-1].getProperty(`recursive`)
+
+    const new_tm = {
+        'employeeId': this[`${position}`].getProperty(`employeeId`),
+        'position': this[`${position}`].getProperty(`position`),
+        'name': this[`${position}`].getProperty(`name`),
+        'email': this[`${position}`].getProperty(`email`),
+        'recursive': this[`${position}`].getProperty(`recursive`),
+        'attr_type': targetPropertyType,
+        'attr_value': this[`${position}`].getProperty(targetPropertyType)         
+    }
+
+    const len = this[`array_${position}`].push(new_tm)
+    const rec = this[`${position}`].getProperty(`recursive`)
     
     if(rec) {
         await this.recursiveCapture(position, targetPropertyType)
@@ -236,44 +255,106 @@ Project.prototype.recursiveCapture = async function(position, targetPropertyType
     }
 }
 
+Project.prototype.htmlBuilder = async function() {
+    let i = 0
+    let j = 0
+    while(i<10) {
+        switch(i) {
+            case 0:
+                await this.builder.clearContent()
+                i++
+            break
+            case 1:
+                await this.builder.appendMain1(this.projectName)
+                i++
+            break
+            case 2:
+                await this.builder.appendSingle(this.manager,`organization`)
+                i++
+            break
+            case 3:
+                await this.builder.appendSingle(this.productowner,`costcenter`)
+                i++
+            break
+            case 4:
+                await this.builder.appendSingle(this.scrummaster,`projectcode`)
+                i++
+            break
+            case 5:
+                await this.builder.appendSingle(this.techlead,`area`)
+                i++
+            break
+            case 6:
+                await this.builder.appendArray(this.array_engineer)
+                i++
+            break
+            case 7:
+                await this.builder.appendArray(this.array_qa)
+                i++
+            break
+            case 8:
+                await this.builder.appendArray(this.array_intern)
+                i++
+            break
+            case 9:
+                await this.builder.appendMain2()
+                i++
+            break
+            default:
+                console.log(`htmlBuilder NOT AN OPTION`)
+            break
+        }
+        
+    }
+    this.capture_lock++
+}
+
 Project.prototype.projectCapture = async function() {
-    while(this.capture_lock<8) {
+    while(this.capture_lock<9) {
         switch(this.capture_lock) {
             case 0:
-                const pn = await inquirer.prompt(this.qproject)
-                this.capture_lock++
+                const pn = await this.projectNameCapture()
+                //this.capture_lock++
             break
             case 1:
                 this.tmc_lock = 0
                 const m = await this.teamMemberCapture(`manager`,`organization`)
+                //this.capture_lock++
             break
             case 2:
                 this.tmc_lock = 0
                 const po = await this.teamMemberCapture(`productowner`,`costcenter`)
+                //this.capture_lock++
             break
             case 3:
                 this.tmc_lock = 0
-                const sm = await this.teamMemberCapture(`scrummaster`,`projectcode`)
+                const sm = await this.teamMemberCapture(`scrummaster`, `projectcode`)
+                //this.capture_lock++
             break
             case 4:
                 this.tmc_lock = 0
                 const tl = await this.teamMemberCapture(`techlead`,`area`)
+                //this.capture_lock++
             break
             case 5:
                 this.tmc_lock = 0
-                const e = await this.recursiveCapture(`engineer`, `github`)
+                const e = await this.recursiveCapture(`engineer`,`github`)
+                //this.capture_lock++
             break
             case 6:
                 this.tmc_lock = 0
-                const qa = await this.recursiveCapture(`qa`, `phase`)
+                const qa = await this.recursiveCapture(`qa`,`phase`)
+                //this.capture_lock++
             break
             case 7:
                 this.tmc_lock = 0
-                const i = await this.recursiveCapture(`intern`, `school`)
+                const i = await this.recursiveCapture(`intern`,`school`)
+                //this.capture_lock++
             break
             case 8:
                 this.tmc_lock = 0
-                
+                await this.htmlBuilder()
+                //this.capture_lock++
             break
             default:
                 console.log(`projectCapture NOT AN OPTION`)
@@ -283,3 +364,5 @@ Project.prototype.projectCapture = async function() {
 }
 
 prj = new Project()
+
+module.exports.project = prj
