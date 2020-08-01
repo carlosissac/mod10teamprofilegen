@@ -1,4 +1,5 @@
-10 OOP: Team Profile Generator
+# 10 OOP: Team Profile Generator
+
 ![GitHub last commit](https://img.shields.io/github/last-commit/carlosissac/mod10teamprofilegen) ![Twitter Follow](https://img.shields.io/twitter/follow/zzzakk_cccrlss?style=social) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/carlosissac/mod10teamprofilegen) ![GitHub followers](https://img.shields.io/github/followers/carlosissac?style=social) 
 
 ## Description
