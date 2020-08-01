@@ -226,7 +226,7 @@ Add the application to your portfolio.
 
 ![image](./assets/features02.jpg)
 
-* *Testing using JEST.* All files with the exception of `app.js` are unit tested using Jest. `app.js` includes the user input capture functionality using inquierer which resulted difficult to mock using JEST.
+* *Testing using JEST.* All files with the exception of `app.js` are unit tested using Jest. `app.js` includes the user input capture functionality using inquierer which resulted difficult to mock using JEST. Shown below are the snapshots of the testing coverage implemented.
 
 ![image](./assets/test01.jpg)
 
