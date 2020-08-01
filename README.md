@@ -25,6 +25,7 @@ Create a Node CLI that takes in information about employees and generates an HTM
     * [Configuration](#Configuration)
     * [Operation](#Operation)
     * [Output](#Output)
+    * [Bonus](#Bonus)
 * [Features](#Features)
 * [VideoWalkthrough](#VideoWalkthrough)
 
@@ -197,25 +198,41 @@ No configuration is needed.
 
 ![image](./assets/output.jpg)
 
+### Bonus
+
+Use validation to ensure that the information provided is in the proper expected format.
+
+- List input is provided in `Manager`, `Tech Lead`, `QA`.
+
+- 5 digit numeric input is required for `Scrum Master` and `Product Owner`.
+
+- Rest of inputs requires mandatory text input if test is not provided it will thorw an error.
+
+- Issac.
+
+![image](./assets/validation.jpg)
+
+Add the application to your portfolio.
+
+- `mod10teamprofilegen` is added to portfolio in the following [link](https://carlosissac.github.io/mod08hwprofessionalmaterials/).
+
 ## Features
 
-* *Editor capture.* When some of the README sections require large amounts of texts user is taken to VIM editor for a better text capture.
+* *Recursive Capture.* `Engineer`, `QA` and `Intern`, are allowed to capture as many elements as required.
 
 ![image](./assets/config05.jpg)
 
-* *List option.* When prompted for license type we are asked to select from a list of options.
+* *GitHub links.* Engineering elements have working GitHub links.
 
 ![image](./assets/features02.jpg)
 
-* *Recursive capture.* After static input is captured the user will be prompted for several items in a recursive manner. By this we mean that the user will be prompted for items until the user decides to move on.
+* *Testing using JEST.* All files with the exception of `app.js` are unit tested using Jest. `app.js` includes the user input capture functionality using inquierer which resulted difficult to mock using JEST.
 
-![image](./assets/features03.jpg)
+![image](./assets/test01.jpg)
 
-* *Fixed Input Mode.*. This mode was developed in order to do an integration test between the ReadMe, Writer and Fixed moduled, and also in order to test the markdown document format.
+![image](./assets/test02.jpg)
 
-* *Jest Unit testing.* ReadMe, Writer and License proto were unit tested using JEST. These tests are coded the the files ending in ".test.js". Unit test results are stored in "coverage/lcov-report/index.html" file, currently not tracked using GitHub.
-
-![image](./assets/jest.jpg)
+![image](./assets/test03.jpg)
 
 ## VideoWalkthrough
 
