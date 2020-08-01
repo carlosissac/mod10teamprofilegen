@@ -220,11 +220,11 @@ Add the application to your portfolio.
 
 * *Recursive Capture.* `Engineer`, `QA` and `Intern`, are allowed to capture as many elements as required.
 
-![image](./assets/config05.jpg)
+![image](./assets/operation05.jpg)
 
 * *GitHub links.* Engineering elements have working GitHub links.
 
-![image](./assets/features02.jpg)
+![image](./assets/operation07.jpg)
 
 * *Testing using JEST.* All files with the exception of `app.js` are unit tested using Jest. `app.js` includes the user input capture functionality using inquierer which resulted difficult to mock using JEST. Shown below are the snapshots of the testing coverage implemented.
 
