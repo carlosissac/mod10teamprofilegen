@@ -37,7 +37,27 @@ Project.prototype.attributes = function() {
     this.tmc_lock = 0
 }
 
-Project.prototype.validateInput = function(text) {
+Project.prototype.validateNumberInput = function(text) {
+    if(text === ``) {
+        console.log(` NO INPUT DETECTED, TRY AGAIN`.brightRed)
+    }
+    else {
+        if(text.length === 5) {
+            let isnum = /^\d+$/.test(text);
+            if(isnum) {
+                return true
+            }
+            else {
+                console.log(` INCORRECT INPUT, NUMBERS ONLY, TRY AGAIN`.brightRed)
+            }
+        }
+        else {
+            console.log(` INPUT NEEDS 5 DIGITS, TRY AGAIN`.brightRed)
+        }
+    }
+}
+
+Project.prototype.validateTextInput = function(text) {
     if(text !== ``) {
         return true
     }
@@ -52,21 +72,21 @@ Project.prototype.inquirerElements = function() {
         type: `input`,
         name: `attribute`, //projectName
         message: `PROJECT NAME :`.yellow,
-        validate: this.validateInput
+        validate: this.validateTextInput
     }
 
     this.qname = {
         type: `input`,
         name: `attribute`, //name
         message: `NAME`.yellow,
-        validate: this.validateInput
+        validate: this.validateTextInput
     }
 
     this.qemail = {
         type: `input`,
         name: `attribute`, //email
         message: `EMAIL`.yellow,
-        validate: this.validateInput
+        validate: this.validateTextInput
     }
 
     this.qmanager = {
@@ -79,15 +99,15 @@ Project.prototype.inquirerElements = function() {
     this.qproductowner = {
         type: `input`,
         name: `attribute`, //poCostCenter
-        message: `COST CENTER`.yellow,
-        validate: this.validateInput
+        message: `COST CENTER (5 digits)`.yellow,
+        validate: this.validateNumberInput
     }
 
     this.qscrummaster = {
         type: `input`,
         name: `attribute`, //smProjectCode
-        message: `PROJECT CODE`.yellow,
-        validate: this.validateInput
+        message: `PROJECT CODE (5 digits)`.yellow,
+        validate: this.validateNumberInput
     }
 
     this.qtechlead = {
@@ -108,14 +128,14 @@ Project.prototype.inquirerElements = function() {
         type: `input`,
         name: `attribute`, //eGitHub
         message: `GITHUB REPO:`.yellow,
-        validate: this.validateInput
+        validate: this.validateTextInput
     }
 
     this.qintern = {
         type: `input`,
         name: `attribute`, //iSchool
         message: `SCHOOL:`.yellow,
-        validate: this.validateInput
+        validate: this.validateTextInput
     }
 
     this.qrecursive = {
@@ -365,4 +385,4 @@ Project.prototype.projectCapture = async function() {
 
 prj = new Project()
 
-module.exports.project = prj
+module.exports = { Project }

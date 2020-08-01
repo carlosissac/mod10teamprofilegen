@@ -1,4 +1,4 @@
-const { Employee } = require(`../libraries/employee`)
+const { Employee } = require(`../lib/employee`)
 
 test(`instantiates Employee and confirms that there's an ID`, () => {
     const test = new Employee()

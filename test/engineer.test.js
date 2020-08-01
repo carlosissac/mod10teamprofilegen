@@ -1,12 +1,18 @@
-const { Engineer } = require(`../libraries/engineer`)
+const { Engineer } = require(`../lib/engineer`)
 
 test(`instantiates Engineer and confirms that there's an ID`, () => {
-    const test = new Engineer(`carlosissac`)
+    const test = new Engineer()
     expect(test.getProperty(`employeeId`)).toEqual(expect.anything())
 })
 
+test(`instantiates Engineer and confirms assigns a resource name`, () => {
+    const test = new Engineer()
+    test.setProperty(`name`,`carlosissac`)
+    expect(test.getProperty(`name`)).toEqual(`carlosissac`)
+})
+
 test(`confirms that getProperty(position) returns 'engineer'`, () => {
-    const test = new Engineer(`carlosissac`)
+    const test = new Engineer()
     expect(test.getProperty(`position`)).toEqual(`engineer`)
 })
 
@@ -16,13 +22,8 @@ test(`validates that getProperty(email) sets value`, () => {
     expect(test.getProperty(`email`)).toEqual(`issac@issac.me`)
 })
 
-test(`validates that setProperty(name) sets value`, () => {
-    const test = new Engineer(`carlosissac`)
-    test.setProperty(`name`,`carlos issac`)
-    expect(test.getProperty(`name`)).toEqual(`carlos issac`)
-})
-
 test(`confirms that getProperty('github') returns expected value`, () => {
-    const test = new Engineer(`carlosissac`)
+    const test = new Engineer()
+    test.setProperty(`github`,`carlosissac`)
     expect(test.getProperty(`github`)).toEqual(`carlosissac`)
 })

@@ -124,7 +124,6 @@ Builder.prototype.appendArray = async function(array) {
         console.log(String(p))
         await this.appendEndDiv()
         this.counter++
-
     }
 }
 
