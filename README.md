@@ -3,7 +3,7 @@
 
 ## Description
 
-Target is creating a command line application that dynamically generates a professional README.md from a user's input using Inquirer NPM package, also using a privided documentation as a guideline as to what content does a quality document should have.
+Create a Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person. Since testing is a key piece in making code maintainable, you will also be ensuring that all unit tests pass.
 
 ## Snapshot
 
@@ -57,6 +57,20 @@ When the user has completed building the team, the application will create an HT
 
 ### ApplicationRequirements
 
+The project must have the these classes: `Employee`, `Manager`, `Engineer`, `Intern`. The tests for these classes in the `tests` directory must all pass.
+
+- App includes the mentioned classes along with `Product Owner`, `Scrum Master`, `Tech Lead` and `QA`. Issac.
+
+Classes inherited from `Employee` parent class will have the following properties and methods: `name`, `id`, `email`, `position`, `getName()`, `getId()`, `getEmail()`, `getPosition()` 
+
+- Depending on the type of class defined it will have the attributes mentioned above. `Intern`, `QA` and `Engineer` classes will have an additional attribute called `recursive` in order to control recursive capture. Issac.
+
+- App includes the mentioned classes along with `Product Owner`, `Scrum Master`, `Tech Lead` and `QA`. Issac.
+
+The project must prompt the user to build an engineering team. An engineering team consists of a manager, and any number of engineers and interns.
+
+- As mentioned before we included also elements for `Product Owner`, `Scrum Master`, `Tech Lead` and `QA` positions. Issac.
+
 ### SubmissionRequierements
 
 Use the `Inquirer` to prompt the user for their `email`, `id`, and specific `attribute` based on role. 
@@ -95,13 +109,13 @@ helper/ .................... Classes to render HTML document.
 
 lib/ ....................... Team member classes, all inherit from employee.js
     employee.js ............ Base class for all team member elements.
-    engineer.js ............ Engineer element class, particular element attribute is GitHub.
-    intern.js .............. Intern element class, particular element attribute is School.
-    manager.js ............. Manager element class, particular element attribute is Organization.
-    productowner.js ........ Product Owner element class, particular element attribute is Cost Center.
-    qa.js .................. QA element class, particular element attribute is Phase.
-    scrummaster.js ......... Scrum Master element class, particular element attribute is Project Code.
-    techlead.js ............ Tech Lead element class, particular element attribute is Area.
+    engineer.js ............ Particular element attribute is GitHub.
+    intern.js .............. Particular element attribute is School.
+    manager.js ............. Particular element attribute is Organization.
+    productowner.js ........ Particular element attribute is Cost Center.
+    qa.js .................. Particular element attribute is Phase.
+    scrummaster.js ......... Particular element attribute is Project Code.
+    techlead.js ............ Particular element attribute is Area.
 
 output/ .................... Rendered output
     team.html .............. Solution's output file.
@@ -123,18 +137,18 @@ templates/ ................. HTML template(s). Team member elements will be appe
     techlead.html .......... Productowner element template.
 
 test/ ...................... JEST Unit tests
-    builder.test.js ........ 
-    employee.test.js ....... 
-    engineer.test.js ....... 
-    intern.test.js ......... 
-    manager.test.js ........ 
-    productowner.test.js ... 
-    qa.test.js ............. 
-    scrummaster.test.js .... 
-    techlead.test.js ....... 
-    writer.test.js ......... 
+    builder.test.js
+    employee.test.js
+    engineer.test.js
+    intern.test.js 
+    manager.test.js 
+    productowner.test.js 
+    qa.test.js 
+    scrummaster.test.js 
+    techlead.test.js 
+    writer.test.js 
 
-app.js ..................... Runs the application
+app.js ..................... Runs the application and captures input using inquirer
 ```
 ## AppUsage
 
@@ -144,49 +158,43 @@ app.js ..................... Runs the application
 
 *Step 2.* Open Terminal and run "npm i --save" in order to install dependencies.
 
-*Step 3.* Write "node app.js"
-
-*Step 4.* Set "select_mode" to either true or false depending on the mode you want to run.
+*Step 3.* Write "node app.js" in Terminal.
 
 ### Configuration 
 
-*Step 1.* Open Index.js file.
-
-*Step 2.* Make sure that the following flag is set to True.
-
-![image](./assets/config01.jpg)
+No configuration is needed.
 
 ### Operation 
 
-*Step 1.* Go to Terminal and run index.js.
+*Step 1.* Go to Terminal and `node app.js`.
 
-![image](./assets/config02.jpg)
+![image](./assets/operation01.jpg)
 
-*Step 2.* ProjectID and InputType will be shown.
+*Step 2.* Input `Project Name`.
 
-![image](./assets/config03.jpg)
+![image](./assets/operation02.jpg)
 
-*Step 3.* Submit input as required and press enter as prompted. When a caption is shown "Press <enter> to launch your preferred editor". Press enter so that VIM editor is shown.
+*Step 3.* Input requested team member's `name`, `email` and team member's `target attribute`. 
 
-![image](./assets/config04.jpg)
+![image](./assets/operation03.jpg)
 
-*Step 4.* VIM editor will be shown.
+*Step 4.* Input information for `Manager`, `Product Owner`, `Scrum Master` and `Tech Lead`. You're only allowed to submit one of these elements. 
 
-![image](./assets/config05.jpg)
+![image](./assets/operation04.jpg)
 
-*Step 5.* Press "i" and the "INSERT" caption will be shown below
+*Step 5.* Input `Engineer`, `QA` and `Intern` team members. Since its a recursice element capture you can input as much team members needed.
 
-![image](./assets/config06.jpg)
+![image](./assets/operation05.jpg)
 
-*Step 6.* Write text content. After you are done press "ESC" key and ":wq!" 
+*Step 6.* Terminal will display a list of all the appended elements.
 
-![image](./assets/config07.jpg)
+![image](./assets/operation06.jpg)
 
 ### Output 
 
-* When running on Fixed mode we output to [README_GENFIX.md](https://github.com/carlosissac/mod09hwreadmegen/blob/master/README_GENFIX.md)
+* Output File will be written in the following link [team.html](https://github.com/carlosissac/mod10teamprofilegen/blob/master/output/team.html)
 
-* While running on User mode we output to [README_GENUSER.md](https://github.com/carlosissac/mod09hwreadmegen/blob/master/README_GENUSER.md)
+![image](./assets/output.jpg)
 
 ## Features
 
