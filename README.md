@@ -1,4 +1,4 @@
-# 10 OOP: Team Profile Generator
+10 OOP: Team Profile Generator
 ![GitHub last commit](https://img.shields.io/github/last-commit/carlosissac/mod10teamprofilegen) ![Twitter Follow](https://img.shields.io/twitter/follow/zzzakk_cccrlss?style=social) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/carlosissac/mod10teamprofilegen) ![GitHub followers](https://img.shields.io/github/followers/carlosissac?style=social) 
 
 ## Description
@@ -18,9 +18,9 @@ Create a Node CLI that takes in information about employees and generates an HTM
 * [AcceptanceChecklist](#AcceptanceChecklist)
     * [InitialRequirements](#InitialRequirements)
     * [ApplicationRequirements](#ApplicationRequirements)
-    * [SubmissionRequierements](#SubmissionRequierements)
+    * [SubmissionRequirements](#SubmissionRequirements)
 * [AppUsage](#AppUsage)
-    * [Instalattion](#Instalattion)
+    * [Installation](#Installation)
     * [Configuration](#Configuration)
     * [Operation](#Operation)
     * [Output](#Output)
@@ -49,15 +49,15 @@ The user can input any number of team members, and they may be a mix of engineer
 
 This assignment must also pass all unit tests.
 
-- All js files were unit tested with the exception of `app.js`. Mocking inquirer input using JEST resulted very difficult. Issac
+- All js files were unit tested with the exception of `app.js`. Mocking inquirer input using JEST turned out to be very difficult to achieve. Issac
 
 When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user. 
 
-- Final HTML page is built using `Materialize`, includes `Fontawesome` linkage, CSS styling, also include a sticky footer and nav bar. Issac.
+- Final HTML page is built using `Materialize`, includes `Fontawesome` linkage, CSS styling, also includes a sticky footer and nav bar. Issac.
 
 ### ApplicationRequirements
 
-The project must have the these classes: `Employee`, `Manager`, `Engineer`, `Intern`. The tests for these classes in the `tests` directory must all pass.
+The project must have these classes: `Employee`, `Manager`, `Engineer`, `Intern`. The tests for these classes in the `tests` directory must all pass.
 
 - App includes the mentioned classes along with `Product Owner`, `Scrum Master`, `Tech Lead` and `QA`. Issac.
 
@@ -69,9 +69,9 @@ Classes inherited from `Employee` parent class will have the following propertie
 
 The project must prompt the user to build an engineering team. An engineering team consists of a manager, and any number of engineers and interns.
 
-- As mentioned before we included also elements for `Product Owner`, `Scrum Master`, `Tech Lead` and `QA` positions. Issac.
+- As mentioned before we also included elements for `Product Owner`, `Scrum Master`, `Tech Lead` and `QA` positions. Issac.
 
-### SubmissionRequierements
+### SubmissionRequirements
 
 Use the `Inquirer` to prompt the user for their `email`, `id`, and specific `attribute` based on role. 
 
@@ -152,7 +152,7 @@ app.js ..................... Runs the application and captures input using inqui
 ```
 ## AppUsage
 
-### Instalattion 
+### Installation 
 
 *Step 1.* Clone repo into your localhost.
 
@@ -182,7 +182,7 @@ No configuration is needed.
 
 ![image](./assets/operation04.jpg)
 
-*Step 5.* Input `Engineer`, `QA` and `Intern` team members. Since its a recursice element capture you can input as much team members needed.
+*Step 5.* Input `Engineer`, `QA` and `Intern` team members. Since it's a recursive element capture you can input as many team members needed.
 
 ![image](./assets/operation05.jpg)
 
@@ -206,19 +206,19 @@ No configuration is needed.
 
 ![image](./assets/features02.jpg)
 
-* *Recursive capture.* After static input is captured the user will be propmpted for several items in a recursive manner. By this we mean that the user will be prompted for items until the user decides to move on.
+* *Recursive capture.* After static input is captured the user will be prompted for several items in a recursive manner. By this we mean that the user will be prompted for items until the user decides to move on.
 
 ![image](./assets/features03.jpg)
 
-* *Fixed Input Mode.*. This mode was developed in order to do an integration test beween the ReadMe, Writer and Fixed moduled, and also in order to test the markdown document fornat.
+* *Fixed Input Mode.*. This mode was developed in order to do an integration test between the ReadMe, Writer and Fixed moduled, and also in order to test the markdown document format.
 
 * *Jest Unit testing.* ReadMe, Writer and License proto were unit tested using JEST. These tests are coded the the files ending in ".test.js". Unit test results are stored in "coverage/lcov-report/index.html" file, currently not tracked using GitHub.
 
 ![image](./assets/jest.jpg)
 
-## VideoWalkthorugh
+## VideoWalkthrough
 
-The following links provide a video walkkthoroughs explaining the development desicions made for this project and a walkthorugh of the usage of the app. Also provided is a slide deck for the explanation video
+The following links provide video walkthroughs explaining the development decisions made for this project and a walkthrough of the usage of the app. Also provided is a slide deck for the explanation video
 
 * [Video Intro](https://youtu.be/RzNnGMWdHG8)
 
